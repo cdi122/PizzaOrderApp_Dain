@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.example.pizzaorderapp_dain.R
 import com.example.pizzaorderapp_dain.datas.Store
 
 class PizzaStoreAdapter(
@@ -15,7 +16,13 @@ class PizzaStoreAdapter(
 
         val inflater = LayoutInflater.from(mContext)
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return super.getView(position, convertView, parent)
+       var tempRow = convertView
+        if (tempRow == null){
+            tempRow = inflater.inflate(R.layout.pizza_store_list_item, null)
+        }
+        val row = tempRow!!
+
+        return row
     }
 
 }
