@@ -16,7 +16,7 @@
         android:theme="@style/Theme.PizzaOrderApp_Dain"
         tools:targetApi="31">
         <activity
-            android:name=".ViewSotreDetailActivity"
+            android:name=".ViewStoreDetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
