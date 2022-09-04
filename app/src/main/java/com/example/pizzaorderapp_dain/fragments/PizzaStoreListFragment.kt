@@ -1,11 +1,13 @@
 package com.example.pizzaorderapp_dain.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pizzaorderapp_dain.R
+import com.example.pizzaorderapp_dain.ViewStoreDetailActivity
 import com.example.pizzaorderapp_dain.adapters.PizzaStoreAdapter
 import com.example.pizzaorderapp_dain.datas.Store
 import kotlinx.android.synthetic.main.fragment_pizza_store_list.*
@@ -33,5 +35,11 @@ class PizzaStoreListFragment : Fragment() {
 
         mPizzaStoreAdapter = PizzaStoreAdapter(requireContext(), R.layout.pizza_store_list_item, mPizzaStoreDataList)
         pizzaStoreListView.adapter = mPizzaStoreAdapter
+        pizzaStoreListView.setOnItemClickListener { parent, view, position, id ->
+            val clickedStore = mPizzaStoreDataList[position]
+            val myIntent = Intent(requireContext(), ViewStoreDetailActivity::class.java)
+            myIntent.putExtra("storeData", clickedStore)
+            startActivity(myIntent)
+        }
     }
 }
